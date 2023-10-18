@@ -61,7 +61,7 @@ const UpdateNote = () => {
   };
 
   return (
-    <div className="w-3/4 p-4">
+    <div className="w-full p-4 md:w-3/4 md:p-4">
       <div className="flex justify-around items-center mb-4">
       <DeleteBtn id={Array.isArray(id) ? id[0] : id as string} />
 

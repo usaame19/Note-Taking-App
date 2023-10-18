@@ -42,7 +42,7 @@ const CreateNote = () => {
   };
 
   return (
-    <div className="w-3/4 p-4">
+    <div className="w-full p-4 md:w-3/4 md:p-4">
      
       <div className="border border-gray-200 rounded-md p-4 h-full">
         <form onSubmit={handleSubmit}>

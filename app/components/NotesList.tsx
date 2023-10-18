@@ -57,7 +57,7 @@ const NotesList = () => {
   note.title.toLowerCase().includes(searchQuery.toLowerCase())
 );
   return (
-    <div className="w-1/4 p-4">
+    <div className="w-full p-4 sm:w-1/4 sm:p-4">
       <SearchNote searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <div className="overflow-y-auto max-h-[calc(100vh-200px)]">
         {filteredNotes.length > 0 ? (
