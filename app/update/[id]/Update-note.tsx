@@ -21,13 +21,12 @@ const UpdateNote = () => {
   });
 
   useEffect(() => {
-    // Fetch data for the specified note based on the 'id' from the URL
     if (id) {
-      // Make a GET request to fetch the existing note data based on 'id'
+      
       fetch(`${baseURL}/api/post/${id}`)
         .then((response) => response.json())
         .then((data) => {
-          // Update the state with the fetched data
+          /
           setNoteData({
             title: data.title,
             description: data.description,
@@ -44,7 +43,7 @@ const UpdateNote = () => {
     setNoteData({ ...noteData, [name]: value });
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: any) => {
     event.preventDefault();
 
     try {
