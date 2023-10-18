@@ -4,10 +4,13 @@ import { IoMdCreate } from 'react-icons/io';
 import { useParams } from 'next/navigation'
 import { useRouter } from 'next/navigation'
 import DeleteBtn from '../../components/delete/Delete'
+import { getBaseUrl } from '../../util/baseURL';
+
 
  
 
 const UpdateNote = () => {
+  const baseURL = getBaseUrl()
   const params = useParams();
   const router = useRouter();
   const { id } = params; 
@@ -21,7 +24,7 @@ const UpdateNote = () => {
     // Fetch data for the specified note based on the 'id' from the URL
     if (id) {
       // Make a GET request to fetch the existing note data based on 'id'
-      fetch(`http://localhost:3000/api/post/${id}`)
+      fetch(`${baseURL}/api/post/${id}`)
         .then((response) => response.json())
         .then((data) => {
           // Update the state with the fetched data
@@ -45,7 +48,7 @@ const UpdateNote = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch(`http://localhost:3000/api/post/${id}`, {
+      const response = await fetch(`${baseURL}/api/post/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

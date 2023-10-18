@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import Note from './Note';
 import SearchNote from './Search/SearchNote'
+import { getBaseUrl } from '../util/baseURL';
+
 
 interface NoteData {
   title: string;
@@ -12,13 +14,14 @@ interface NoteData {
 }
 
 const NotesList = () => {
+  const baseURL = getBaseUrl()
   const [notes, setNotes] = useState<NoteData[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
 
   const fetchNotes = async () => {
     try {
-      const response = await fetch('http://localhost:3000/api/post');
+      const response = await fetch(`${baseURL}/api/post`);
       if (response.ok) {
         const data = await response.json();
         setNotes(data.reverse());

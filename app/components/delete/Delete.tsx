@@ -1,18 +1,19 @@
 'use client'
-
 import React, { useTransition } from 'react';
 import { IoMdTrash } from 'react-icons/io';
 import { useRouter } from 'next/navigation';
-const DeleteBtn = ({ id }) => {
+import { getBaseUrl } from '../../util/baseURL';
 
+const DeleteBtn = ({ id }: { id: string }) => {
+  const baseURL = getBaseUrl()
     const [transition, startTransition] = useTransition();
 
     const router = useRouter();
 
-    const handleDelete = async (id) => {
+    const handleDelete = async (id: string) => {
         
 
-        const data = await fetch(`http://localhost:3000/api/post/${id}`, {
+        const data = await fetch(`${baseURL}/api/post/${id}`, {
             method: 'DELETE'
         });
         startTransition(() => {

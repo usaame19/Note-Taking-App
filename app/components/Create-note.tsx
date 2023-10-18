@@ -1,7 +1,9 @@
 "use client"
 import React, { useState } from 'react';
+import { getBaseUrl } from '../util/baseURL';
 
 const CreateNote = () => {
+  const baseURL = getBaseUrl()
   const [noteData, setNoteData] = useState({
     title: '',
     description: '',
@@ -16,7 +18,7 @@ const CreateNote = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:3000/api/post', {
+      const response = await fetch(`${baseURL}/api/post`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
