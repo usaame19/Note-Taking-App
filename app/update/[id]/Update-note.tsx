@@ -26,7 +26,6 @@ const UpdateNote = () => {
       fetch(`${baseURL}/api/post/${id}`)
         .then((response) => response.json())
         .then((data) => {
-          /
           setNoteData({
             title: data.title,
             description: data.description,
@@ -64,7 +63,8 @@ const UpdateNote = () => {
   return (
     <div className="w-3/4 p-4">
       <div className="flex justify-around items-center mb-4">
-        <DeleteBtn id={id} />
+      <DeleteBtn id={Array.isArray(id) ? id[0] : id as string} />
+
         <button  onClick={() => router.push('/')} className="text-indigo-500 flex">
           <IoMdCreate className="m-1" /> Create Note
         </button>
